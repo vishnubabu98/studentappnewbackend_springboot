@@ -15,7 +15,7 @@ public class StudentController {
     @PostMapping(path="/add",consumes = "application/json",produces = "application/json")
     public String AddStudent(@RequestBody Students s)
     {
-        System.out.println(s.getName().toString());
+        System.out.println(s.toString());
         return "student added successfully";
     }
 
