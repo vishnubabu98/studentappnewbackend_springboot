@@ -5,6 +5,8 @@ import com.example.studentappnew_backend.model.Students;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class StudentController {
     @Autowired
@@ -22,6 +24,11 @@ public class StudentController {
         System.out.println(s.toString());
         dao.save(s);
         return "student added successfully";
+    }
+    @CrossOrigin(origins = "*")
+    @GetMapping("/view")
+    public List<Students>viewStudents(){
+        return(List<Students>)dao.findAll();
     }
 
 
