@@ -30,6 +30,15 @@ public class StudentController {
     public List<Students>viewStudents(){
         return(List<Students>)dao.findAll();
     }
+    @CrossOrigin(origins = "*")
+    @PostMapping(path="/search",consumes = "application/json",produces = "application/json")
+    public List searchStudent(@RequestBody Students s)
+    {
+        String student = String.valueOf(s.getRollno());
+        System.out.println(student);
+        dao.searchStudents(s.getRollno());
+        return(List<Students>)dao.searchStudents(s.getRollno());
+    }
 
 
 }
